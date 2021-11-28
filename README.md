@@ -1,5 +1,5 @@
 # Food Ordering
-CS353 Databse Systems Term Project
+CS353 Database Systems Term Project
 
 **Project Members:**
   - Ahmet Ayberk Yılmaz
