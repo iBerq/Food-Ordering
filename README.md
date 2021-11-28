@@ -23,6 +23,7 @@ should have an order cycle having different status values.
 delivery time, delivery person, and etc.
   - Write comments for orders that are finalized/delivered and see the response of the
 restaurant's owner if available.
+
 **The Restaurant Owner manages his/her menu and orders.**
   - List all the orders made by customers considering different values for meal status.
   - Finalize an order and ask for a delivery guy assignment. A delivery guy is
@@ -30,6 +31,7 @@ randomly assigned to an order if his/her status is available.
   - List all the comments made by customers and write a response to each comment.
   - Add/Remove and/or modify meals inside the menu. Modification can include
 price change, change of ingredients, and/or managing delivery options.
+
 **The Delivery guy delivers the order.**
   - List all the orders handled by the delivery guy including assignment requests
 highlighting the decision if available.
