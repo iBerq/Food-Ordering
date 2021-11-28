@@ -1,0 +1,50 @@
+<?php
+include_once("dbConnection.php");
+
+if (isset($_POST['region_btn'])) {
+	$_SESSION['region_id'] = $_POST['region_in'];
+	setcookie($_POST['region_in']);
+	header("Refresh:0");
+}
+
+$select_region = mysqli_query($con, "SELECT * from region");
+$regions = "";
+while ($row_region = mysqli_fetch_array($select_region)) {
+	if (isset($_SESSION['region_id']) && $_SESSION['region_id'] == $row_region['region_id'])
+		$regions .= "<option selected value=\"".$row_region['region_id']."\">".$row_region['name']."</option>";
+	else
+		$regions .= "<option value=\"".$row_region['region_id']."\">".$row_region['name']."</option>";
+}
+?>
+<div class="dropdown-menu">
+	<div class="dropdown-part">
+		<img src="img/avatar.png" style="width: 80%;">
+		<h3 class="text-overflow" style="margin-bottom: 0px; border: 0.5px rgba(255,255,255,0.5) solid;"><?php echo $_SESSION['name']." ".$_SESSION['surname']; ?></h3>
+	</div>
+	<div class="dropdown-part" style="padding: 0.3vw;">
+		<h3 class="text-overflow" style="max-height: 3vw; margin: 0.3vw; font-size: 0.9vw;">$<?php echo $_SESSION['wallet']?> in wallet</h3>
+		<h3 class="text-overflow" style="max-height: 3vw; margin: 0.3vw; font-size: 0.9vw;">$<?php echo $_COOKIE['basket_cost']?> in basket</h3>
+	</div>
+	<div class="dropdown-part" style="padding-top: 0px;">
+		<form name="region_form" method="post" style="padding: 0.2vw; border: 0.5px rgba(255,255,255,0.5) solid;">
+			<select name='region_in' class='form-input' style="height: 2vw; padding-bottom: 0.2vw;">
+				<?php echo $regions; ?>
+			</select>
+			<button type="submit" name="region_btn" class="form-btn" style="width: 100%; height: 2vw; font-size: 1vw; margin-top: 0.2vw;">Save</button>
+		</form>
+	</div>
+	<div class="dropdown-part" style="padding-top: 0.5vw;">
+		<button class="btn-rec" name="home_page_btn" onclick="window.location.href='c_homePage.php'" style="margin: 0.2vw; white-space: nowrap;"><i class="material-icons" style="font-size: 1.3vw;">home</i><br>Home Page</button>
+		<button style="margin: 0.2vw;" class="btn-rec" name="view_account_btn" onclick="window.location.href='c_viewAccount.php'"><i class="material-icons" style="font-size: 1.3vw;">account_circle</i><br>View Account</button>
+		<button style="margin: 0.2vw;" class="btn-rec" name="past_orders_btn" onclick="window.location.href='c_viewBasket.php'"><i class="material-icons" style="font-size: 1.3vw;">receipt_long</i><br>View Basket</button>
+		<button style="margin: 0.2vw;" class="btn-rec" name="current_orders_btn" onclick="window.location.href='c_pastOrders.php'"><i class="material-icons" style="font-size: 1.3vw;">delivery_dining</i><br>Past Orders</button>
+		<button style="margin: 0.2vw;" class="btn-rec" name="menu_btn" onclick="window.location.href='c_support.php'"><i class="material-icons" style="font-size: 1.3vw;">lunch_dining</i><br>Support</button>
+		<button style="margin: 0.2vw;" class="btn-rec" name="wallet_btn" onclick="window.location.href='c_wallet.php'"><i class="material-icons" style="font-size: 1.3vw;">account_balance_wallet</i><br>Wallet</button>
+	</div>
+	<div class="dropdown-part" style="margin-bottom: 20px; margin-top: auto;">
+		<img src="img/logo4.png" style="width: 100%;">
+		<form method="post" style="width: 100%;">
+			<button class="form-btn" name="sign_out_btn" style="width: 100%; margin-top: 20px; font-size: 1.2vw; height: 2vw;">Sign Out</button>
+		</form>
+	</div>
+</div>
