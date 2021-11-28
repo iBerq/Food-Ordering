@@ -3,13 +3,12 @@ CS353 Databse Systems Term Project
 
 **Project Members:**
   - Ahmet Ayberk Yılmaz
-  - Denizhan Kemeröz
   - Süleyman Semih Demir
 
 # Description
-An food ordering app implemented for a school project.
+An food ordering app implemented for a school project. Worked as full-stack developer.
 
-It is an web application project which implemented with HTML, CSS, and PHP that has the functionalities below.
+Developed an web application project which implemented with HTML, CSS, and PHP that uses MySQL for database and has the functionalities below.
 
   - Signup and Login functionalities for 3 user types (Customer, Delivery guy, and owner).
 
