@@ -1,0 +1,21 @@
+<div class="dropdown-menu">
+	<div class="dropdown-part">
+		<img src="img/avatar.png" style="width: 90%;">
+		<h3 class="text-overflow" style="border: 0.5px rgba(255,255,255,0.5) solid;"><?php echo $_SESSION['name']." ".$_SESSION['surname']; ?></h3>
+	</div>
+	<div class="dropdown-part" style="padding-top: 0px;">
+		<button class="btn-rec" name="view_account_btn" onclick="window.location.href='o_homePage.php'" style="margin-top: 0px; white-space: nowrap;"><i class="material-icons" style="font-size: 1.3vw;">home</i><br>Home Page</button>
+		<button class="btn-rec" name="view_account_btn" onclick="window.location.href='o_viewAccount.php'"><i class="material-icons" style="font-size: 1.3vw;">account_circle</i><br>View Account</button>
+		<button class="btn-rec" name="past_orders_btn" onclick="window.location.href='o_pastOrders.php'"><i class="material-icons" style="font-size: 1.3vw;">receipt_long</i><br>Past Orders</button>
+		<button class="btn-rec" name="current_orders_btn" onclick="window.location.href='o_currentOrders.php'"><i class="material-icons" style="font-size: 1.3vw;">delivery_dining</i><br>Current Orders</button>
+		<button class="btn-rec" name="menu_btn" onclick="window.location.href='o_menu.php'"><i class="material-icons" style="font-size: 1.3vw;">fastfood</i><br>Menus</button>
+		<button class="btn-rec" name="menu_btn" onclick="window.location.href='o_meal.php'"><i class="material-icons" style="font-size: 1.3vw;">lunch_dining</i><br>Meals</button>
+		<button class="btn-rec" name="wallet_btn" onclick="window.location.href='o_wallet.php'"><i class="material-icons" style="font-size: 1.3vw;">account_balance_wallet</i><br>Wallet</button>
+	</div>
+	<div class="dropdown-part" style="margin-bottom: 20px; margin-top: auto;">
+		<img src="img/logo4.png" style="width: 100%;">
+		<form method="post" style="width: 100%;">
+			<button class="form-btn" name="sign_out_btn" style="width: 100%; margin-top: 20px; font-size: 1.2vw;">Sign Out</button>
+		</form>
+	</div>
+</div>

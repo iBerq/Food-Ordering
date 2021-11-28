@@ -1,0 +1,32 @@
+<?php
+include_once("dbConnection.php");
+?>
+<div class="dropdown-menu">
+	<div class="dropdown-part">
+		<img src="img/avatar.png" style="width: 80%;">
+		<h3 class="text-overflow" style="margin-bottom: 0px; border: 0.5px rgba(255,255,255,0.5) solid;"><?php echo $_SESSION['name']." ".$_SESSION['surname']; ?></h3>
+	</div>
+	<div class="dropdown-part" style="max-height: 10vw; padding-top: 0.5vw;">
+		<?php
+		$select_supports = mysqli_query($con, "SELECT * FROM supports WHERE supporter_id='".$_SESSION['user_id']."' AND state='0'");
+		while ($row_supports = mysqli_fetch_array($select_supports)) {
+			$customer = mysqli_fetch_array(mysqli_query($con, "SELECT user_id, name, surname FROM customer WHERE user_id='".$row_supports['customer_id']."'"));
+			?>
+			<button class="btn-rec" name="customer_btn" onclick="directPage(<?php echo $customer['user_id']; ?>)" style="margin: 0.2vw; white-space: nowrap;"><i class="material-icons" style="font-size: 1.3vw;">person</i><br><?php echo $customer['name']."&nbsp;".$customer['surname']; ?></button>
+			<?php
+		}
+		?>
+	</div>
+	<div class="dropdown-part" style="margin-bottom: 20px; margin-top: auto;">
+		<img src="img/logo4.png" style="width: 100%;">
+		<form method="post" style="width: 100%;">
+			<button class="form-btn" name="sign_out_btn" style="width: 100%; margin-top: 20px; font-size: 1.2vw; height: 2vw;">Sign Out</button>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	function directPage() {
+		document.cookie="customer_id=<?php echo $customer['user_id']; ?>";
+		window.location.href='s_support.php';
+	}
+</script>
