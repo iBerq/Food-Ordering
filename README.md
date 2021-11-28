@@ -6,7 +6,7 @@ CS353 Database Systems Term Project
   - Süleyman Semih Demir
 
 # Description
-An food ordering app implemented for a school project.
+A food ordering application implemented for a school project.
 
 Developed an web application project which implemented with HTML, CSS, and PHP that uses MySQL for database and has the functionalities below.
 
